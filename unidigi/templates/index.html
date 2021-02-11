@@ -7,13 +7,13 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>Unidigi | {% block title %}Home{% endblock %}</title>
-        <link rel="stylesheet" href="{% static 'css/test.css' %}">
+        <link rel="stylesheet" href="{% static 'css/index.css' %}">
     </head>
     <body>
         <div class="index" style="margin-bottom: 10px;">
             <a href="{% url 'index' %}">Home</a>
         </div>
-        {% block content %}
+        {% block header-content %}
             <ul>
                 <li><a href="{% url 'signup' %}">{% translate 'Sign up' %}</a></li>
                 <li><a href="{% url 'login' %}">{% translate 'Log in' %}</a></li>
