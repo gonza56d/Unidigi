@@ -16,6 +16,11 @@ class Exam(BaseModel):
     """
     
     teacher = models.ForeignKey('users.User', on_delete=models.CASCADE)
+    students = models.ManyToManyField(
+        'users.User',
+        through='studentexams.StudentExam',
+        related_name='student_exams'
+    )
     exam = models.CharField(max_length=50)
     minutes = models.PositiveIntegerField(null=True, blank=True)
     deadline = models.DateTimeField(null=True, blank=True)
