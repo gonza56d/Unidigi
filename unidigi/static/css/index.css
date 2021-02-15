@@ -13,6 +13,7 @@
     box-sizing: border-box;
     list-style: none;
     font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    --yellow: #fac73c;
 }
 
 header {
@@ -22,7 +23,7 @@ header {
     padding: 0px 30px;
     width: 100%;
     height: 100px;
-    background-color: rgb(250, 199, 60);
+    background-color: var(--yellow);
     margin-bottom: 60px;
 }
 .navbar {
