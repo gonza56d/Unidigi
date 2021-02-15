@@ -31,6 +31,7 @@ DJANGO_APPS = [
 THIRD_PARTY_APPS = []
 
 PROJECT_APPS = [
+    'unidigi.profiles.apps.ProfilesConfig',
     'unidigi.users.apps.UsersConfig',
 ]
 

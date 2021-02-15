@@ -1,10 +1,9 @@
 # Django
 from django.contrib.auth.models import AbstractUser, UserManager
-from django.core.validators import RegexValidator
 from django.db import models
 
 # Project
-from unidigi.utils.models import BaseModel
+from unidigi.utils.models import BaseModel, CommonRegex
 
 
 class UserManager(UserManager):
@@ -26,14 +25,10 @@ class User(BaseModel, AbstractUser):
     User accounts model.
     """
 
-    USERNAME_REGEX = RegexValidator(
-        regex='[a0-z9]',
-        message='Only letters and numbers allowed.'
-    )
     username = models.CharField(
         max_length=20,
         unique=True,
-        validators=[USERNAME_REGEX],
+        validators=[CommonRegex.LOWERCASE_AND_NUMBERS],
         error_messages={'unique': 'Username already in use.'}
     )
     email = models.EmailField(
