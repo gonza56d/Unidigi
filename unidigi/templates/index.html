@@ -1,3 +1,5 @@
+{% load i18n %}
+{% load static %}
 <!doctype html>
 <html lang="en">
     <head>
@@ -6,7 +8,15 @@
         <title>Unidigi | {% block title %}Home{% endblock %}</title>
     </head>
     <body>
+        <div class="index" style="margin-bottom: 10px;">
+            <a href="{% url 'index' %}">Home</a>
+        </div>
         {% block content %}
+            <ul>
+                <li><a href="{% url 'signup' %}">{% translate 'Sign up' %}</a></li>
+                <li><a href="{% url 'login' %}">{% translate 'Log in' %}</a></li>
+            </ul>
         {% endblock %}
+        <script src="{% static 'js/test.js' %}"></script>
     </body>
 </html>

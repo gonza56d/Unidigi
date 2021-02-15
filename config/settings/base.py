@@ -98,6 +98,8 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+LOGIN_URL = 'login'
+
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
@@ -121,6 +123,8 @@ AUTHENTICATION_BACKENDS = ['unidigi.users.backends.UserBackend']
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_ROOT = UNIDIGI_DIR / 'static_root'
-
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+    UNIDIGI_DIR / 'static',
+]

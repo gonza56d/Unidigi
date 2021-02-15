@@ -10,5 +10,6 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include('unidigi.index.urls')),
     path('users/', include('unidigi.users.urls')),
 ]
