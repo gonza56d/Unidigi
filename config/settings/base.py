@@ -35,6 +35,7 @@ PROJECT_APPS = [
     'unidigi.exams.apps.ExamsConfig',
     'unidigi.profiles.apps.ProfilesConfig',
     'unidigi.questions.apps.QuestionsConfig',
+    'unidigi.studentexams.apps.StudentExamsConfig',
     'unidigi.users.apps.UsersConfig',
 ]
 
