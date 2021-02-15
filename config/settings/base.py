@@ -115,7 +115,7 @@ USE_TZ = True
 AUTH_USER_MODEL =  'users.User'
 
 # Auth backend override
-AUTHENTICATION_BACKENDS = ['users.backends.UserBackend']
+AUTHENTICATION_BACKENDS = ['unidigi.users.backends.UserBackend']
 
 
 # Static files (CSS, JavaScript, Images)
