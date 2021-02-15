@@ -6,8 +6,8 @@ from unidigi.utils.models import BaseModel
 
 class StudentExam(BaseModel):
     """
-    ManyToMany relationship with student users which are allowed to perform
-    the exam.
+    ManyToMany relationship that indicates what exams are the students allowed
+    to take.
     It stores the date time when the student starts the exam and also the
     finish date time.
     """
