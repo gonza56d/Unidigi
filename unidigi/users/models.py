@@ -20,7 +20,7 @@ class UnidigiUserManager(UserManager):
         username = username.lower()
         email = email or ''
         email = email.lower()
-        user = super()._create_user(self, username, email, password, **extra_fields)
+        user = super()._create_user(username, email, password, **extra_fields)
         profile = Profile()
         profile.user = user
         profile.first_name = first_name

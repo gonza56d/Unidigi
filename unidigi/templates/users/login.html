@@ -1,9 +1,24 @@
 {% extends 'index.html' %}
 
+{% load i18n %}
+
 {% block title %}Log in{% endblock %}
 
 {% block content %}
-
-    {{ form }}
-
+{% if messages %}
+    <div class="messages">
+        {% for message in messages %}
+            {{ message }}
+        {% endfor %}
+    </div>
+{% endif %}
+<form method="POST" enctype="application/x-www-form-urlencoded"
+        id="form-login" action="{% url 'login' %}">
+    {% csrf_token %}
+    {% for field in form %}
+        <label>{{ field.label }}</label>
+        {{ field }}
+    {% endfor %}
+    <button>{% translate 'Log in' %}</button>
+</form>
 {% endblock %}

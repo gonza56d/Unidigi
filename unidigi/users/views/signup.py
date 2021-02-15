@@ -1,15 +1,20 @@
 # Django
+from django.contrib import messages
 from django.shortcuts import redirect, render
+from django.utils.translation import gettext_lazy as _
 
 # Project
 from unidigi.users.models import User
 from unidigi.users.forms import SignupForm
 
 
-def signup(request):
+def signup(request):    
 
-    form = SignupForm()
-    return render(request, 'users/signup.html', {'form': form})
+    if request.method == 'POST':
+        return perform_signup(request)
+    elif request.method == 'GET':
+        form = SignupForm()
+        return render(request, 'users/signup.html', {'form': form})
 
 
 def perform_signup(request):
@@ -23,9 +28,9 @@ def perform_signup(request):
             first_name=form.cleaned_data.get('first_name'),
             last_name=form.cleaned_data.get('last_name')
         )
+        messages.add_message(request, messages.SUCCESS, _('Your account has been registered!'))
         return redirect('login')
     else:
-        form = SignupForm()
-        errors = form.errors
-        return render(request, 'users/signup.html', {'form': form, 'errors': errors})
-
+        for errors in form.errors.values():
+            [messages.add_message(request, messages.WARNING, _(error)) for error in errors]
+        return redirect('signup')
