@@ -9,8 +9,15 @@
     {% if messages %}
         
     {% endif %}
-        
-    <form method="POST" enctype="application/x-www-form-urlencoded"
+        <!--ALERTS-->
+        {% for message in messages %}
+            <div class="message" role="alert">
+                {{ message }}
+            </div>
+        {% endfor %}
+
+        <!--LOGIN FORMULARY-->
+        <form method="POST" enctype="application/x-www-form-urlencoded"
             id="form-login" action="{% url 'login' %}" class="formulary">
         {% csrf_token %}
         <label for="id_username">username</label>
@@ -18,10 +25,6 @@
         <label for="id_password">password</label>
         <input type="password" class="text-input"  name="password" id="id_password" required>
         <button class="form-button">{% translate 'Log in' %}</button>
-        <div class="messages">
-            {% for message in messages %}
-            {{ message }}
-            {% endfor %}
-        </div>
+        
     </form>
 {% endblock %}

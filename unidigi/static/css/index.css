@@ -17,13 +17,16 @@
 }
 body {
     background-color: var(--white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0px 30px;
-    width: 100%;
+    width: 100vw;
     height: 100px;
     background-color: var(--yellow);
     margin-bottom: 60px;
@@ -41,4 +44,5 @@ header {
 }
 .navbar a {
     text-decoration: none;
+    color: black;
 }
