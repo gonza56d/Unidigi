@@ -4,19 +4,7 @@
 
 
 {% block title %}Log in{% endblock %}
-
-{% block header-content %}{% endblock %}
 {% block content %}
-    {% if messages %}
-        
-    {% endif %}
-        <!--ALERTS-->
-        {% for message in messages %}
-            <div class="message" role="alert">
-                {{ message }}
-            </div>
-        {% endfor %}
-
         <!--LOGIN FORMULARY-->
         <form method="POST" enctype="application/x-www-form-urlencoded"
             id="form-login" action="{% url 'login' %}" class="formulary">
