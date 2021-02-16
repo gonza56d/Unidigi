@@ -26,9 +26,7 @@ def perform_login(request):
         if user is not None:
             auth.login(request, user)
             messages.add_message(request, messages.SUCCESS, _('Log in succes.'))
+            return redirect('index')
         else:
             messages.add_message(request, messages.WARNING, _('Wrong username/password.'))
-    else:
-        for errors in form.errors.values():
-            [messages.add_message(request, messages.WARNING, _(error)) for error in errors]
     return redirect('login')
