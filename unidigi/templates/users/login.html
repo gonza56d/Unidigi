@@ -4,20 +4,22 @@
 
 {% block title %}Log in{% endblock %}
 {% block content %}
-{% if messages %}
-    <div class="messages">
-        {% for message in messages %}
-            {{ message }}
-        {% endfor %}
-    </div>
-{% endif %}
-<form method="POST" enctype="application/x-www-form-urlencoded"
-        id="form-login" action="{% url 'login' %}" class="formulary">
-    {% csrf_token %}
-    <label for="id_username">username</label>
-    <input type="text" class="text-input" id="id_username">
-    <label for="id_password">password</label>
-    <input type="text" class="text-input" id="id_password">
-    <button class="form-button">{% translate 'Log in' %}</button>
-</form>
+    {% if messages %}
+        
+    {% endif %}
+        
+    <form method="POST" enctype="application/x-www-form-urlencoded"
+            id="form-login" action="{% url 'login' %}" class="formulary">
+        {% csrf_token %}
+        <label for="id_username">username</label>
+        <input type="text" class="text-input" id="id_username">
+        <label for="id_password">password</label>
+        <input type="text" class="text-input" id="id_password">
+        <button class="form-button">{% translate 'Log in' %}</button>
+        <div class="messages">
+            {% for message in messages %}
+                {{ message }}
+            {% endfor %}
+        </div>
+    </form>
 {% endblock %}

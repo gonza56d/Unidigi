@@ -15,7 +15,9 @@
     font-family: 'Roboto', Arial, Helvetica, sans-serif;
     --yellow: #fac73c;
 }
-
+body {
+    background-color: var(--white);
+}
 header {
     display: flex;
     justify-content: space-between;

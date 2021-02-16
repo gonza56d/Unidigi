@@ -6,19 +6,28 @@
 
 {% block content %}
 {% if messages %}
-    <div class="messages">
-        {% for message in messages %}
-            {{ message }}
-        {% endfor %}
-    </div>
+    
 {% endif %}
 <form method="POST" enctype="application/x-www-form-urlencoded"
-        id="form-login" action="{% url 'signup' %}">
-    {% csrf_token %}
-    {% for field in form %}
-        <label>{{ field.label }}</label>
-        {{ field }}
-    {% endfor %}
-    <button>{% translate 'Sign up' %}</button>
+        id="form-login" action="{% url 'signup' %}" class="formulary">
+        {% csrf_token %}
+        <label for="id_username">username</label>
+        <input type="text" class="text-input" id="id_username">
+        <label for="id_email">email</label>
+        <input type="text" class="text-input" id="id_email">
+        <label for="id_password">password</label>
+        <input type="text" class="text-input" id="id_password">
+        <label for="id_re_password">re password</label>
+        <input type="text" class="text-input" id="id_re_password">
+        <label for="id_first_name">first name</label>
+        <input type="text" class="text-input" id="id_first_name">
+        <label for="id_last_name">last name</label>
+        <input type="text" class="text-input" id="id_last_name">
+        <button class="form-button">{% translate 'Log in' %}</button>
+        <div class="messages">
+            {% for message in messages %}
+                {{ message }}
+            {% endfor %}
+        </div>
 </form>
 {% endblock %}

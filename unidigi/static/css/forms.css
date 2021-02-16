@@ -1,38 +1,54 @@
 * {
     --yellow: #fac73c;
-    --light-yellow: #fde9b1;
+    --light-yellow: #f8de96;
     --black: rgb(36, 36, 36);
+    --white: rgb(238, 238, 238);
+    --gray: rgb(90, 90, 90);
+}
+body {
+    background-color: var(--white);
 }
 .text-input {
     width: 250px;
-    height: 50px;
-    margin: 10px 0px 30px;
-    border-radius: 5px;
+    height: 40px;
+    margin: 10px 0px;
     outline: none;
     border: none;
-    background-color: var(--light-yellow);
+    border-bottom: 1px solid var(--black);
+    background-color: transparent;
     padding: 0px 25px;
+    font-size: 1.3rem;
+    color: rgba(90, 90, 90, 0.5);
 }
 .formulary {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 350px;
-    height: 450px;
+    height: auto;
     margin: 100px auto;
     padding: 20px;
     border-radius: 15px;
-    background-color: var(--yellow);
-    box-shadow: 0px 2px 10px rgba(0,0,0,0.2);
-    font-size: 1.7rem;
+    background-color: var(--light-yellow);
+    box-shadow: 0px 2px 10px rgba(36, 36, 36, 0.5);
+    font-size: 1.5rem;
 }
 .form-button {
+    display: inline-block;
     width: 150px;
     height: 50px;
+    margin-top: 40px;
     border-radius: 5px;
     font-size: 1.3rem;
     border: 1px solid var(--black);
     outline: none;
-    
-
+    background-color: var(--black);
+    color: var(--white)
+}
+.messages {
+    margin-top: 30px;
+    width: 100%;
+    min-height: 50px;
+    font-size: 1rem;
+    text-align: center;
 }
