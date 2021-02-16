@@ -30,7 +30,4 @@ def perform_signup(request):
         )
         messages.add_message(request, messages.SUCCESS, _('Your account has been registered!'))
         return redirect('login')
-    else:
-        for errors in form.errors.values():
-            [messages.add_message(request, messages.WARNING, _(error)) for error in errors]
-        return redirect('signup')
+    return redirect('signup')
