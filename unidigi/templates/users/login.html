@@ -2,7 +2,9 @@
 {% load i18n %}
 {% load static %}
 
+
 {% block title %}Log in{% endblock %}
+
 {% block content %}
     {% if messages %}
         
@@ -12,13 +14,13 @@
             id="form-login" action="{% url 'login' %}" class="formulary">
         {% csrf_token %}
         <label for="id_username">username</label>
-        <input type="text" class="text-input" id="id_username">
+        <input type="text" class="text-input" name="username" id="id_username" required>
         <label for="id_password">password</label>
-        <input type="text" class="text-input" id="id_password">
+        <input type="password" class="text-input"  name="password" id="id_password" required>
         <button class="form-button">{% translate 'Log in' %}</button>
         <div class="messages">
             {% for message in messages %}
-                {{ message }}
+            {{ message }}
             {% endfor %}
         </div>
     </form>
