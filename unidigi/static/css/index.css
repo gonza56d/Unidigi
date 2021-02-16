@@ -1,0 +1,48 @@
+/*fuentes*/
+@font-face {
+    font-family: Roboto;
+    src: url(static/admin/fonts/Roboto-Light-webfont.woff),
+         url(static/admin/fonts/Roboto-Regular-webfont.woff),
+         url(static/admin/fonts/Roboto-Bold-webfont.woff),
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    --yellow: #fac73c;
+}
+body {
+    background-color: var(--white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 30px;
+    width: 100vw;
+    height: 100px;
+    background-color: var(--yellow);
+    margin-bottom: 60px;
+}
+.navbar {
+    justify-self: flex-end
+}
+.logo p {
+    font-size: 4em;
+}
+.navbar li {
+    display: inline-block;
+    font-size: 2em;
+    padding-left: 20px;
+}
+.navbar a {
+    text-decoration: none;
+    color: black;
+}

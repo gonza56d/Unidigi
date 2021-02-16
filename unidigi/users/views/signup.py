@@ -9,7 +9,9 @@ from unidigi.users.forms import SignupForm
 
 
 def signup(request):    
-
+    """
+    Redirect to account registration page.
+    """
     if request.method == 'POST':
         return perform_signup(request)
     elif request.method == 'GET':
@@ -18,7 +20,9 @@ def signup(request):
 
 
 def perform_signup(request):
-
+    """
+    Receive new account request and try to sign up.
+    """
     form = SignupForm(data=request.POST)
     if form.is_valid():
         User.objects.create_user(
@@ -26,11 +30,11 @@ def perform_signup(request):
             email=form.cleaned_data.get('email'),
             password=form.cleaned_data.get('password'),
             first_name=form.cleaned_data.get('first_name'),
-            last_name=form.cleaned_data.get('last_name')
+            last_name=form.cleaned_data.get('last_name'),
+            profile_type=form.cleaned_data.get('profile_type')
         )
         messages.add_message(request, messages.SUCCESS, _('Your account has been registered!'))
         return redirect('login')
-    else:
-        for errors in form.errors.values():
-            [messages.add_message(request, messages.WARNING, _(error)) for error in errors]
-        return redirect('signup')
+    for errors in form.errors.values():
+        [messages.add_message(request, messages.WARNING, error) for error in errors]
+    return redirect('signup')

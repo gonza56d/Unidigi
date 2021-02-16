@@ -17,6 +17,8 @@ SECRET_KEY = 'pzfqq%zd7h4yxcm%1epq=a#7ax3m*i(r$6n0thmu^pln)#1&8r'
 
 ALLOWED_HOSTS = []
 
+import mimetypes
+mimetypes.add_type("text/css", ".css", True)
 
 # Application definition
 DJANGO_APPS = [

@@ -1,25 +1,31 @@
 {% extends 'index.html' %}
-
 {% load i18n %}
+{% load static %}
+
 
 {% block title %}Log in{% endblock %}
 
 {% block header-content %}{% endblock %}
 {% block content %}
-{% if messages %}
-    <div class="messages">
+    {% if messages %}
+        
+    {% endif %}
+        <!--ALERTS-->
         {% for message in messages %}
-            {{ message }}
+            <div class="message" role="alert">
+                {{ message }}
+            </div>
         {% endfor %}
-    </div>
-{% endif %}
-<form method="POST" enctype="application/x-www-form-urlencoded"
-        id="form-login" action="{% url 'login' %}">
-    {% csrf_token %}
-    {% for field in form %}
-        <label>{{ field.label }}</label>
-        {{ field }}
-    {% endfor %}
-    <button>{% translate 'Log in' %}</button>
-</form>
+
+        <!--LOGIN FORMULARY-->
+        <form method="POST" enctype="application/x-www-form-urlencoded"
+            id="form-login" action="{% url 'login' %}" class="formulary">
+        {% csrf_token %}
+        <label for="id_username">username</label>
+        <input type="text" class="text-input" name="username" id="id_username" required>
+        <label for="id_password">password</label>
+        <input type="password" class="text-input"  name="password" id="id_password" required>
+        <button class="form-button">{% translate 'Log in' %}</button>
+        
+    </form>
 {% endblock %}
