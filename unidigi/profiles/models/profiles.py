@@ -10,16 +10,16 @@ class Profile(BaseModel):
     Representation of users' profile.
     """
 
-    class Kinds(models.TextChoices):
+    class ProfileTypes(models.TextChoices):
         """
-        User.kind constants.
+        profile_type constants.
         Users can have profile of either teachers or students.
         """
         TEACHER = 'T', 'Teacher'
         STUDENT = 'S', 'Student'
 
     user = models.OneToOneField('users.User', on_delete=models.CASCADE)
-    kind = models.CharField(max_length=1, choices=Kinds.choices)
+    profile_type = models.CharField(max_length=1, choices=ProfileTypes.choices)
     first_name = models.CharField(max_length=100, validators=[CommonRegex.LETTERS])
     last_name = models.CharField(max_length=100, validators=[CommonRegex.LETTERS])
     birthday = models.DateField(null=True, blank=True)

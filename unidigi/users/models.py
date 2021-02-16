@@ -9,13 +9,16 @@ from unidigi.utils.models import BaseModel, CommonRegex
 
 class UnidigiUserManager(UserManager):
 
-    def _create_user(self, username, email, password, first_name, last_name, **extra_fields):
+    def _create_user(self, username, email, password, first_name, last_name, 
+                     profile_type, **extra_fields):
         """
         Ensure username and email are in lowercase before calling the framework
         implementation of method.
         """
         if not first_name or not last_name:
             raise ValueError('First name and last name are required.')
+        if not profile_type:
+            raise ValueError('Profile type is querired')
         username = username or ''
         username = username.lower()
         email = email or ''
@@ -25,16 +28,18 @@ class UnidigiUserManager(UserManager):
         profile.user = user
         profile.first_name = first_name
         profile.last_name = last_name
+        profile.profile_type = profile_type
         return user
 
     def create_user(self, username, email=None, password=None, first_name=None,
-                    last_name=None, **extra_fields):
+                    last_name=None, profile_type=None, **extra_fields):
         extra_fields.setdefault('is_staff', False)
         extra_fields.setdefault('is_superuser', False)
-        return self._create_user(username, email, password, first_name, last_name, **extra_fields)
+        return self._create_user(username, email, password, first_name, 
+                                 last_name, profile_type, **extra_fields)
 
     def create_superuser(self, username, email=None, password=None, 
-                         first_name=None, last_name=None, **extra_fields):
+                         first_name=None, last_name=None, profile_type=None, **extra_fields):
         extra_fields.setdefault('is_staff', True)
         extra_fields.setdefault('is_superuser', True)
 
@@ -43,7 +48,8 @@ class UnidigiUserManager(UserManager):
         if extra_fields.get('is_superuser') is not True:
             raise ValueError('Superuser must have is_superuser=True.')
 
-        return self._create_user(username, email, password, first_name, last_name, **extra_fields)
+        return self._create_user(username, email, password, first_name, 
+                                 last_name, profile_type, **extra_fields)
 
 
 class User(BaseModel, AbstractUser):

@@ -26,8 +26,11 @@ def perform_signup(request):
             email=form.cleaned_data.get('email'),
             password=form.cleaned_data.get('password'),
             first_name=form.cleaned_data.get('first_name'),
-            last_name=form.cleaned_data.get('last_name')
+            last_name=form.cleaned_data.get('last_name'),
+            profile_type=form.cleaned_data.get('profile_type')
         )
         messages.add_message(request, messages.SUCCESS, _('Your account has been registered!'))
         return redirect('login')
+    for errors in form.errors.values():
+        [messages.add_message(request, messages.WARNING, error) for error in errors]
     return redirect('signup')

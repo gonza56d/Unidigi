@@ -11,12 +11,11 @@ class SignupForm(forms.ModelForm):
     re_password = forms.CharField()
     first_name = forms.CharField()
     last_name = forms.CharField()
-    kind = forms.ChoiceField(choices=Profile.Kinds.choices)
+    profile_type = forms.ChoiceField(choices=Profile.ProfileTypes.choices)
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['password'].widget = forms.PasswordInput() 
-        self.fields['re_password'].widget = forms.PasswordInput()
+        self.fields['password'].widget = forms.PasswordInput()
 
     class Meta:
         model = User
