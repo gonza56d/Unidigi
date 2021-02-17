@@ -4,37 +4,42 @@
 {% block title %}Sign up{% endblock %}
 
 {% block content %}
-{% if messages %}
-    
-{% endif %}
-<form method="POST" enctype="application/x-www-form-urlencoded"
-        id="form-login" action="{% url 'signup' %}" class="formulary">
-        {% csrf_token %}
-        <label for="id_username">username</label>
-        <input type="text"  class="text-input"  name="username" id="id_username" required>
-        <label for="id_email">email</label>
-        <input type="email" class="text-input" name="email" id="id_email" required>
-        <label for="id_password">password</label>
-        <input type="password" class="text-input" name="password" id="id_password" required>
-        <label for="id_re_password">re password</label>
-        <input type="password" class="text-input" name="re_password" id="id_re_password" required>
-        <label for="id_first_name">first name</label>
-        <input type="text" class="text-input" name="first_name" id="id_first_name" required>
-        <label for="id_last_name">last name</label>
-        <input type="text" class="text-input" name="last_name" id="id_last_name" required>
-        <div class="account-type_container">
-            <label for="id_account_type" class="label_account-type">account type</label>
-            <select name="profile_type" class="select" id="id_account_type" required>
-                <option value="T">student</option>
-                <option value="S">teacher</option>
-            </select>
+
+    <!--ALERTS-->
+    {% for message in messages %}
+        <div class="message" role="alert">
+            {{ message }}
         </div>
-        
-        <button class="form-button">{% translate 'Sing up' %}</button>
-        <div class="messages">
-            {% for message in messages %}
-                {{ message }}
-            {% endfor %}
-        </div>
+    {% endfor %}
+
+    <form method="POST" enctype="application/x-www-form-urlencoded"
+            id="form-login" action="{% url 'signup' %}" class="formulary">
+            {% csrf_token %}
+            <label for="id_username">username</label>
+            <input type="text"  class="text-input"  name="username" id="id_username" required>
+            <label for="id_email">email</label>
+            <input type="text" class="text-input" name="email" id="id_email" required>
+            <label for="id_password">password</label>
+            <input type="password" class="text-input" name="password" id="id_password" required>
+            <label for="id_re_password">re password</label>
+            <input type="password" class="text-input" name="re_password" id="id_re_password" required>
+            <label for="id_first_name">first name</label>
+            <input type="text" class="text-input" name="first_name" id="id_first_name" required>
+            <label for="id_last_name">last name</label>
+            <input type="text" class="text-input" name="last_name" id="id_last_name" required>
+            <div class="account-type_container">
+                <label for="id_account_type" class="label_account-type">account type</label>
+                <select name="account_type" class="select" id="id_account_type" required>
+                    <option value="">student</option>
+                    <option value="">teacher</option>
+                </select>
+            </div>
+            
+            <button class="form-button">{% translate 'Sing up' %}</button>
+            <div class="messages">
+                {% for message in messages %}
+                    {{ message }}
+                {% endfor %}
+            </div>
 </form>
 {% endblock %}
