@@ -25,11 +25,15 @@
             {% endblock %}
         </header>
         <!--ALERTS-->
-        {% for message in messages %}
+
+        {% if messages %}
             <div class="message">
+            {% for message in messages %}
                 {{ message }}
+            {% endfor %}
             </div>
-        {% endfor %}
+        {% endif %}
+
         {% block content %}
         {% endblock %}
 
