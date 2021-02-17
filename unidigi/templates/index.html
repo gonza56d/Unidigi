@@ -12,7 +12,8 @@
     </head>
     <body>
         <header>
-            {% block header-content %}
+            {% block header-content %}  
+                
                 <div class="logo">
                     <p>uni-digi</p>
                 </div>
@@ -23,7 +24,18 @@
                 </ul>
             {% endblock %}
         </header>
-        {% block content %}{% endblock %}
+        <!--ALERTS-->
+
+        {% if messages %}
+            <div class="message">
+            {% for message in messages %}
+                {{ message }}
+            {% endfor %}
+            </div>
+        {% endif %}
+
+        {% block content %}
+        {% endblock %}
 
         <script src="{% static 'js/test.js' %}"></script>
     </body>

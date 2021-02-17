@@ -4,21 +4,13 @@
 {% block title %}Sign up{% endblock %}
 
 {% block content %}
-
-    <!--ALERTS-->
-    {% for message in messages %}
-        <div class="message" role="alert">
-            {{ message }}
-        </div>
-    {% endfor %}
-
     <form method="POST" enctype="application/x-www-form-urlencoded"
             id="form-login" action="{% url 'signup' %}" class="formulary">
             {% csrf_token %}
             <label for="id_username">username</label>
             <input type="text"  class="text-input"  name="username" id="id_username" required>
             <label for="id_email">email</label>
-            <input type="text" class="text-input" name="email" id="id_email" required>
+            <input type="email" class="text-input" name="email" id="id_email" required>
             <label for="id_password">password</label>
             <input type="password" class="text-input" name="password" id="id_password" required>
             <label for="id_re_password">re password</label>

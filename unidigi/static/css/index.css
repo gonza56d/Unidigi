@@ -46,3 +46,25 @@ header {
     text-decoration: none;
     color: black;
 }
+.message-container {
+    display: flex;
+    position:absolute;
+    width: 100vw;
+    border: 1px solid red;
+    justify-content: center;
+    top: 130px;
+}
+.message {
+    position:absolute;
+    margin: auto;
+    max-width: 70%;
+    top: 130px;
+    left: 0;
+    right: 0;
+    display: inline-block;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid var(--blue);
+    border-radius: 5px;
+    background: var(--light-blue);
+}

@@ -45,19 +45,6 @@
     background-color: var(--black);
     color: var(--white)
 }
-.message {
-    position:absolute;
-    display: inline-block;
-    min-width: 500px;
-    text-align: center;
-    top: 130px;
-    width: auto;
-    padding: 10px;
-    border: 1px solid var(--blue);
-    border-radius: 5px;
-    background: var(--light-blue);
-    margin-top: 0 auto;
-}
 .label_account-type {
     display: inline-block;
 
