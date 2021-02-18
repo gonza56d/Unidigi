@@ -4,13 +4,14 @@ from django.shortcuts import redirect, render
 from django.utils.translation import gettext_lazy as _
 
 # Project
-from unidigi.users.models import User
-from unidigi.users.forms import SignupForm
+from ..forms import SignupForm
+from unidigi.users import services
 
 
 def signup(request):    
     """
-    Redirect to account registration page.
+    Redirect to signup business logic if post.
+    Redirect to account registration page if get.
     """
     if request.method == 'POST':
         return perform_signup(request)
@@ -25,7 +26,7 @@ def perform_signup(request):
     """
     form = SignupForm(data=request.POST)
     if form.is_valid():
-        User.objects.create_user(
+        services.perform_signup(
             username=form.cleaned_data.get('username'),
             email=form.cleaned_data.get('email'),
             password=form.cleaned_data.get('password'),

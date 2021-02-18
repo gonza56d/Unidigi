@@ -1,3 +1,5 @@
+"""Users login views module."""
+
 # Django
 from django.contrib import auth, messages
 from django.shortcuts import redirect, render
