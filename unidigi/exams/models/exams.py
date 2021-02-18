@@ -5,6 +5,12 @@ from django.db import models
 from unidigi.utils.models import BaseModel
 
 
+class ExamManager(models.Manager):
+
+    def user_available_exams(self, user):
+        return self.filter(students=user)
+
+
 class Exam(BaseModel):
     """
     Exam created by a teacher user.
@@ -24,6 +30,8 @@ class Exam(BaseModel):
     exam = models.CharField(max_length=50)
     minutes = models.PositiveIntegerField(null=True, blank=True)
     deadline = models.DateTimeField(null=True, blank=True)
+
+    objects = ExamManager()
 
     def __str__(self):
         return self.exam
